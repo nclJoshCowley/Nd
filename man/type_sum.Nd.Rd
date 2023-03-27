@@ -2,7 +2,7 @@
 % Please edit documentation in R/Nd-methods.R
 \name{type_sum.Nd}
 \alias{type_sum.Nd}
-\title{Implementation of \link{pillar.type_sum}}
+\title{Implementation of \link[pillar:type_sum]{pillar::type_sum}}
 \usage{
 type_sum.Nd(x)
 }

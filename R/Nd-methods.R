@@ -8,7 +8,7 @@ is.Nd <- function(x) {
 }
 
 
-#' Implementation of [pillar.type_sum]
+#' Implementation of [pillar::type_sum]
 #'
 #' Changes type summary (shown in tibbles) from `Surv` to `Nd`.
 #'
