@@ -18,12 +18,14 @@ LazyData: true
 RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
 Depends:
+    R (>= 2.10),
     survival
 Imports: 
     readr,
     rlang,
     tibble
 Suggests: 
+    ggplot2,
     NADA,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

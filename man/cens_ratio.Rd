@@ -19,6 +19,7 @@ Other \code{Nd} functions:
 \code{\link{geom_Nd}()},
 \code{\link{impute.Nd}()},
 \code{\link{is.Nd}()},
+\code{\link{plot.Nd}()},
 \code{\link{type_sum.Nd}()}
 }
 \concept{\code{Nd} functions}

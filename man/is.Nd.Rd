@@ -17,6 +17,7 @@ Other \code{Nd} functions:
 \code{\link{cens_ratio}()},
 \code{\link{geom_Nd}()},
 \code{\link{impute.Nd}()},
+\code{\link{plot.Nd}()},
 \code{\link{type_sum.Nd}()}
 }
 \concept{\code{Nd} functions}
