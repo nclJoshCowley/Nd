@@ -20,6 +20,17 @@ test_that("passing Nd returns self", {
 })
 
 
+test_that("passing no arguments returns empty Nd object", {
+  Nd()
+  skip_if_not(creation_valid)
+  x_Nd <- suppressWarnings(Nd(testdata_Nd))
+
+  expect_error(Nd(x_Nd), NA)
+  expect_warning(Nd(x_Nd), NA)
+  expect_equal(Nd(x_Nd), x_Nd)
+})
+
+
 subset_valid <- test_that("subset by '$' returns vector", {
   skip_if_not(creation_valid)
   x_Nd <- suppressWarnings(Nd(testdata_Nd))

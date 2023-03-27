@@ -8,6 +8,8 @@ format.Nd <- function(x, ...) {
 #' @noRd
 #' @export
 as.character.Nd <- function(x, ...) {
+  if (length(x) == 0) return("Nd(0)")
+
   value_character <- format(x$value, trim = TRUE, drop0trailing = TRUE)
 
   out <- paste0(ifelse(x$is_nd, "ND<", ""), value_character)

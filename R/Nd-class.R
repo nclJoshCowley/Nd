@@ -31,7 +31,8 @@ Nd <- function(x, ...) UseMethod("Nd")
 Nd.default <- function(x, ...) {
   # Length-0 vector
   if (missing(x)) {
-    return(validate_Nd(new_Nd(value = double(), is_nd = logical())))
+    out <- validate_Nd(new_Nd(value = double(), is_nd = logical()))
+    return(out)
   }
 
   stop("Can't coerce <", class(x)[[1]], "> into Nd object")
