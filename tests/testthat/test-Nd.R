@@ -1,12 +1,18 @@
 creation_valid <- test_that("constructor (character) works", {
+  expect_warning(Nd(testdata_Nd))
   expect_error(suppressWarnings(Nd(testdata_Nd)), NA)
-  expect_warning(Nd(testdata_Nd), "4 parsing failures")
+})
+
+
+test_that("constructor (factor) fails", {
+  expect_error(Nd(factor(1)))
 })
 
 
 test_that("constructor (numeric) works", {
   expect_error(Nd(1:10), NA)
   expect_warning(Nd(1:10), NA)
+  expect_error(Nd(x = 1:4, is_nd = c(FALSE, TRUE)))
 })
 
 
@@ -47,15 +53,16 @@ test_that("subset and modify using '$' works", {
 
   x_Nd <- suppressWarnings(Nd(testdata_Nd))
 
-  x_Nd_modified <- {
+  x_Nd_modified <- local({
     x_Nd$value <- 4 * x_Nd$value
+    x_Nd$is_nd <- !x_Nd$is_nd
     attr(x_Nd, "problems") <- NULL
     x_Nd
-  }
+  })
 
   expect_equal(
     x_Nd_modified,
-    Nd(c("0.4", "40", "ND<2", "ND<10.8", rep(NA, 6)))
+    Nd(c("ND<0.4", "ND<40", "2", "10.8", rep(NA, 6)))
   )
 })
 
@@ -88,6 +95,22 @@ method_test("is.finite.Nd()", {
 
 method_test("length.Nd()", {
   expect_equal(length(x_Nd), 10)
+})
+
+
+method_test("log.Nd()", {
+  expect_equal(log(x_Nd)$value[1:2], log(x_Nd$value[1:2]))
+  expect_error(log(log(log(x_Nd))))
+})
+
+
+method_test("exp.Nd()", {
+  expect_equal(exp(x_Nd)$value[1:2], exp(x_Nd$value[1:2]))
+})
+
+
+method_test("mean.Nd()", {
+  expect_error(mean(x_Nd))
 })
 
 
