@@ -2,21 +2,21 @@
 % Please edit documentation in R/Nd-methods.R
 \name{type_sum.Nd}
 \alias{type_sum.Nd}
-\title{Implementation of [pillar.type_sum]}
+\title{Implementation of \link{pillar.type_sum}}
 \usage{
 type_sum.Nd(x)
 }
 \arguments{
-\item{x}{object of class [`Nd`].}
+\item{x}{object of class \code{\link{Nd}}.}
 }
 \description{
-Changes type summary (shown in tibbles) from `Surv` to `Nd`.
+Changes type summary (shown in tibbles) from \code{Surv} to \code{Nd}.
 }
 \seealso{
-Other `Nd` functions: 
+Other \code{Nd} functions: 
 \code{\link{cens_ratio}()},
 \code{\link{geom_Nd}()},
 \code{\link{impute.Nd}()},
 \code{\link{is.Nd}()}
 }
-\concept{`Nd` functions}
+\concept{\code{Nd} functions}

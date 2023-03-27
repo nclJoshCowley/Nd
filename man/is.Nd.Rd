@@ -2,21 +2,21 @@
 % Please edit documentation in R/Nd-methods.R
 \name{is.Nd}
 \alias{is.Nd}
-\title{Check `Nd` Class}
+\title{Check \code{Nd} Class}
 \usage{
 is.Nd(x)
 }
 \arguments{
-\item{x}{object of class [`Nd`].}
+\item{x}{object of class \code{\link{Nd}}.}
 }
 \description{
-Check `Nd` Class
+Check \code{Nd} Class
 }
 \seealso{
-Other `Nd` functions: 
+Other \code{Nd} functions: 
 \code{\link{cens_ratio}()},
 \code{\link{geom_Nd}()},
 \code{\link{impute.Nd}()},
 \code{\link{type_sum.Nd}()}
 }
-\concept{`Nd` functions}
+\concept{\code{Nd} functions}

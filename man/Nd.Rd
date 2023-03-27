@@ -19,30 +19,30 @@ Nd(x, ...)
 \method{Nd}{character}(x, ..., na = c("", "NA"))
 }
 \arguments{
-\item{x}{object. Input to be converted to `Nd`.}
+\item{x}{object. Input to be converted to \code{Nd}.}
 
 \item{...}{These dots are for future extensions and must be empty.}
 
-\item{is_nd}{logical. Required when `x` is numeric.}
+\item{is_nd}{logical. Required when \code{x} is numeric.}
 
 \item{na}{character. Vector of values to be interpreted as NA.}
 }
 \value{
-An object of class `c("Nd", "Surv")`.
+An object of class \code{c("Nd", "Surv")}.
 }
 \description{
 S3 class that represents left-censored data commonly referred to as
-  **non-detect** data.
+\strong{non-detect} data.
 }
 \details{
-The object is made up of a numerical component, `value`, that
-  represents an observed concentration or level of detection depending on
-  whether the logical component, `is_nd`, is `TRUE` or `FALSE` respectively.
+The object is made up of a numerical component, \code{value}, that
+represents an observed concentration or level of detection depending on
+whether the logical component, \code{is_nd}, is \code{TRUE} or \code{FALSE} respectively.
 }
 \section{Survival}{
 
-  This class is an extension to the [survival::Surv] class; a special case
-  where left-censoring is implicitly assumed.
+This class is an extension to the \link[survival:Surv]{survival::Surv} class; a special case
+where left-censoring is implicitly assumed.
 }
 
 \examples{

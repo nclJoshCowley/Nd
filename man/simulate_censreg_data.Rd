@@ -4,17 +4,22 @@
 \alias{simulate_censreg_data}
 \title{Simulate Censored Regression Data}
 \usage{
-simulate_censreg_data(n, coeff, noise, quantiles)
+simulate_censreg_data(n, regr, sd, quantiles)
 }
 \arguments{
-\item{n}{intger. Number of observations.}
+\item{n}{integer. Number of observations.}
 
 \item{regr}{vector. Regression coefficients, including intercept.}
+
+\item{sd}{numeric. The standard deviation of the 'noise' added to \code{y}.}
+
+\item{quantiles}{numeric. Censor by quantile(s) between 0 and 1.}
 }
 \description{
-Simulates linear regression and [artificially censors][artificial_censor()]
-  the dependent variable.
+Simulates linear regression and \link[=artificial_censor]{artificially censors}
+the dependent variable.
 }
 \note{
-The number of independent variabels
+The number of independent variables, \code{p - 1}, is determined by the
+number of supplied regression coefficients, \code{p}.
 }

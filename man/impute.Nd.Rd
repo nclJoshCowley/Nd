@@ -13,14 +13,14 @@ impute_by_factor(value, is_nd, impute_fct = 0.5)
 impute_by_ros(value, is_nd)
 }
 \arguments{
-\item{x}{object of class [`Nd`].}
+\item{x}{object of class \code{\link{Nd}}.}
 
-\item{method}{coercible to function. See **Method** section.}
+\item{method}{coercible to function. See \strong{Method} section.}
 
-\item{delog}{logical. When `TRUE`, values are exponentiated before
+\item{delog}{logical. When \code{TRUE}, values are exponentiated before
 imputation and log transformed afterwards.}
 
-\item{...}{extra arguments passed to `method`.}
+\item{...}{extra arguments passed to \code{method}.}
 
 \item{value, is_nd}{numeric, logical. Used in pre-defined methods.}
 
@@ -31,29 +31,31 @@ Impute Non-Detect Data
 }
 \section{Functions}{
 \itemize{
-\item \code{impute_by_factor}: Replace each non-detect with the product of some factor (`impute_fct`)
+\item \code{impute_by_factor()}: Replace each non-detect with the product of some factor (\code{impute_fct})
 and the detection limit.
 
-\item \code{impute_by_ros}: Apply Regression on Order Statistics (ROS) method proposed by Lee and
-Helsel in the `NADA` package.
-}}
+\item \code{impute_by_ros()}: Apply Regression on Order Statistics (ROS) method proposed by Lee and
+Helsel in the \code{NADA} package.
 
+}}
 \section{Method}{
 
 An imputation method can be pre-defined and identified via a character,
 such as
-  - `"DL2"`, half detection limit,
-  - `"ROS"`, regression on order statistics via `NADA` package.
+\itemize{
+\item \code{"DL2"}, half detection limit,
+\item \code{"ROS"}, regression on order statistics via \code{NADA} package.
+}
 
-Other types are passed to [rlang::as_function()] and is expected to return
-a numeric vector given arguments `value` and `is_nd`.
+Other types are passed to \code{\link[rlang:as_function]{rlang::as_function()}} and is expected to return
+a numeric vector given arguments \code{value} and \code{is_nd}.
 }
 
 \seealso{
-Other `Nd` functions: 
+Other \code{Nd} functions: 
 \code{\link{cens_ratio}()},
 \code{\link{geom_Nd}()},
 \code{\link{is.Nd}()},
 \code{\link{type_sum.Nd}()}
 }
-\concept{`Nd` functions}
+\concept{\code{Nd} functions}

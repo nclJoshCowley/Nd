@@ -7,18 +7,18 @@
 cens_ratio(x, na.rm = FALSE)
 }
 \arguments{
-\item{x}{object of class [`Nd`].}
+\item{x}{object of class \code{\link{Nd}}.}
 
-\item{na.rm}{logical. NA observations ignored when `TRUE`.}
+\item{na.rm}{logical. NA observations ignored when \code{TRUE}.}
 }
 \description{
 Compute Degree of Censoring
 }
 \seealso{
-Other `Nd` functions: 
+Other \code{Nd} functions: 
 \code{\link{geom_Nd}()},
 \code{\link{impute.Nd}()},
 \code{\link{is.Nd}()},
 \code{\link{type_sum.Nd}()}
 }
-\concept{`Nd` functions}
+\concept{\code{Nd} functions}

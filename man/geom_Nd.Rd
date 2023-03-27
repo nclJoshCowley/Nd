@@ -7,16 +7,16 @@
 geom_Nd(x)
 }
 \arguments{
-\item{x}{object of class [`Nd`].}
+\item{x}{object of class \code{\link{Nd}}.}
 }
 \description{
 Visualise Non-Detect Data
 }
 \seealso{
-Other `Nd` functions: 
+Other \code{Nd} functions: 
 \code{\link{cens_ratio}()},
 \code{\link{impute.Nd}()},
 \code{\link{is.Nd}()},
 \code{\link{type_sum.Nd}()}
 }
-\concept{`Nd` functions}
+\concept{\code{Nd} functions}

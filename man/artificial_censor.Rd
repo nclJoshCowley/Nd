@@ -17,5 +17,5 @@ artificial_censor(x, quantiles, detlims)
 Converts bare numeric into a left-censored quantity with less information.
 }
 \details{
-Only one of the arguments `quantiles` and `detlims` should be supplied.
+Only one of the arguments \code{quantiles} and \code{detlims} should be supplied.
 }
