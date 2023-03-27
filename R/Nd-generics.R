@@ -78,13 +78,6 @@ mean.Nd <- function(x, ...) {
 
 #' @noRd
 #' @export
-is.na.Nd <- function(x) {
-  as.vector(rowSums(is.na(unclass(x))) > 0)
-}
-
-
-#' @noRd
-#' @export
 is.finite.Nd <- function(x) {
   is.finite(x$value)
 }
