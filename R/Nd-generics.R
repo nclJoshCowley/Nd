@@ -30,10 +30,11 @@ print.Nd <- function(x, quote = FALSE, ...) {
 #' @noRd
 #' @export
 `$.Nd` <- function(x, name) {
+  x_matrix <- unname(unclass(x))
   switch(
     match.arg(name, c("value", "is_nd")),
-    "value" = unname(unclass(x[, 1])),
-    "is_nd" = !(as.logical(unname(unclass(x[, 2]))))
+    "value" = x_matrix[, 1],
+    "is_nd" = !(as.logical(x_matrix[, 2]))
   )
 }
 
@@ -48,6 +49,44 @@ print.Nd <- function(x, quote = FALSE, ...) {
   }
 
   return(validate_Nd(new_Nd(value = x$value, is_nd = value)))
+}
+
+
+#' @noRd
+#' @export
+`[.Nd` <- function(x, i, ...) {
+  extra_args <- rlang::list2(...)
+  if ("drop" %in% names(extra_args)) {
+    warning("Ignoring 'drop' argument", call. = FALSE)
+    extra_args$drop <- NULL
+  }
+
+  if (length(extra_args) > 0) {
+    stop("Only one index allowed in `[.Nd`", call. = FALSE)
+  }
+
+  xattr <- attributes(x)[setdiff(names(attributes(x)), c("dim", "dimnames"))]
+  x <- unclass(x)[i, , drop = FALSE]
+  attributes(x) <- c(attributes(x), xattr)
+  return(x)
+}
+
+
+#' @noRd
+#' @export
+`[<-.Nd` <- function(x, i, ..., value) {
+  if (!rlang::is_empty(rlang::list2(...))) {
+    stop("Only one index allowed in `[<-.Nd`", call. = FALSE)
+  }
+
+  if (!is.Nd(value)) {
+    cls <- paste0(class(value), collapse = "/")
+    stop(sprintf("Replacement must be <Nd> not <%s>", cls), call. = FALSE)
+  }
+
+  x$value[i] <- value$value
+  x$is_nd[i] <- value$is_nd
+  return(x)
 }
 
 
