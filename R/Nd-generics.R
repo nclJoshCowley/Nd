@@ -55,11 +55,10 @@ print.Nd <- function(x, quote = FALSE, ...) {
 #' @noRd
 #' @export
 `[.Nd` <- function(x, i, ...) {
-  extra_args <- rlang::list2(...)
-  if ("drop" %in% names(extra_args)) {
-    warning("Ignoring 'drop' argument", call. = FALSE)
-    extra_args$drop <- NULL
-  }
+  extra_args <- rlang::dots_list(..., .ignore_empty = "all")
+
+  # Drop is **silently** ignored; used in `stats::model.frame` so no warning
+  if ("drop" %in% names(extra_args)) extra_args$drop <- NULL
 
   if (length(extra_args) > 0) {
     stop("Only one index allowed in `[.Nd`", call. = FALSE)
@@ -75,7 +74,12 @@ print.Nd <- function(x, quote = FALSE, ...) {
 #' @noRd
 #' @export
 `[<-.Nd` <- function(x, i, ..., value) {
-  if (!rlang::is_empty(rlang::list2(...))) {
+  extra_args <- rlang::dots_list(..., .ignore_empty = "all")
+
+  # Mirror `[.Nd` behaviour with 'drop'
+  if ("drop" %in% names(extra_args)) extra_args$drop <- NULL
+
+  if (length(extra_args) > 0) {
     stop("Only one index allowed in `[<-.Nd`", call. = FALSE)
   }
 
@@ -87,9 +91,9 @@ print.Nd <- function(x, quote = FALSE, ...) {
   x_matrix <- unclass(x)
 
   x_matrix[i, 1] <- value$value
-  x_matrix[i, 2] <- value$is_nd
+  x_matrix[i, 2] <- !(value$is_nd)
 
-  return(validate_Nd(new_Nd(x_matrix[, 1], x_matrix[, 2]), quiet = FALSE))
+  return(validate_Nd(new_Nd(x_matrix[, 1], !(x_matrix[, 2])), quiet = FALSE))
 }
 
 
