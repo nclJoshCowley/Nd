@@ -31,8 +31,7 @@ Nd <- function(x, ...) UseMethod("Nd")
 Nd.default <- function(x, ...) {
   # Length-0 vector
   if (missing(x)) {
-    out <- validate_Nd(new_Nd(value = double(), is_nd = logical()))
-    return(out)
+    return(new_Nd(value = double(), is_nd = logical()))
   }
 
   stop("Can't coerce <", class(x)[[1]], "> into Nd object")
@@ -42,7 +41,7 @@ Nd.default <- function(x, ...) {
 #' @rdname Nd
 #' @export
 Nd.Nd <- function(x, ...) {
-  validate_Nd(x)
+  return(validate_Nd(x, quiet = FALSE))
 }
 
 
@@ -55,8 +54,7 @@ Nd.numeric <- function(x, is_nd, ...) {
     stop("Input and 'is_nd' not equal lengths.", call. = FALSE)
   }
 
-  out <- validate_Nd(new_Nd(value = x, is_nd = is_nd))
-  return(out)
+  return(validate_Nd(new_Nd(value = x, is_nd = is_nd), quiet = FALSE))
 }
 
 
@@ -69,9 +67,7 @@ Nd.character <- function(x, ..., na = c("", "NA")) {
   value <- readr::parse_double(gsub(regex_nd, "", x), na = na)
   is_nd <- ifelse(is.na(value), NA, grepl(regex_nd, x))
 
-
-  out <- validate_Nd(new_Nd(value = value, is_nd = is_nd))
-  return(out)
+  return(validate_Nd(new_Nd(value = value, is_nd = is_nd), quiet = FALSE))
 }
 
 
@@ -87,13 +83,14 @@ new_Nd <- function(value, is_nd) {
 
 
 #' @keywords internal
+#' @param quiet logical. When `TRUE`, return value is [invisible].
 #' @noRd
-validate_Nd <- function(x) {
+validate_Nd <- function(x, quiet = TRUE) {
   stopifnot(
     "Invalid Nd, length mismatch" = all.equal(length(x$value), length(x$is_nd)),
     "Invalid Nd, NAs mismatch" = all.equal(is.na(x$value), is.na(x$is_nd)),
     "Invalid Nd, non-finite values" = !(any(is.infinite(x$value)))
   )
 
-  invisible(x)
+  if (isFALSE(quiet)) return(x) else invisible(x)
 }

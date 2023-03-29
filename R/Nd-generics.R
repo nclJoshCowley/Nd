@@ -45,10 +45,10 @@ print.Nd <- function(x, quote = FALSE, ...) {
   name <- match.arg(name, c("value", "is_nd"))
 
   if (name == "value") {
-    return(validate_Nd(new_Nd(value = value, is_nd = x$is_nd)))
+    return(validate_Nd(new_Nd(value = value, is_nd = x$is_nd), quiet = FALSE))
   }
 
-  return(validate_Nd(new_Nd(value = x$value, is_nd = value)))
+  return(validate_Nd(new_Nd(value = x$value, is_nd = value), quiet = FALSE))
 }
 
 
@@ -89,8 +89,7 @@ print.Nd <- function(x, quote = FALSE, ...) {
   x_matrix[i, 1] <- value$value
   x_matrix[i, 2] <- value$is_nd
 
-  out <- validate_Nd(new_Nd(x_matrix[, 1], x_matrix[, 2]))
-  return(out)
+  return(validate_Nd(new_Nd(x_matrix[, 1], x_matrix[, 2]), quiet = FALSE))
 }
 
 
