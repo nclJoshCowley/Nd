@@ -84,9 +84,13 @@ print.Nd <- function(x, quote = FALSE, ...) {
     stop(sprintf("Replacement must be <Nd> not <%s>", cls), call. = FALSE)
   }
 
-  x$value[i] <- value$value
-  x$is_nd[i] <- value$is_nd
-  return(x)
+  x_matrix <- unclass(x)
+
+  x_matrix[i, 1] <- value$value
+  x_matrix[i, 2] <- value$is_nd
+
+  out <- validate_Nd(new_Nd(x_matrix[, 1], x_matrix[, 2]))
+  return(out)
 }
 
 
