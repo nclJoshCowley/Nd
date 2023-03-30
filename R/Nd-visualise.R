@@ -64,3 +64,37 @@ quantile_plot_Nd <- function(x) {
     cur_scale_colour +
     ggplot2::labs(y = "Rank", x = NULL)
 }
+
+
+#' Add `ggplot2` Layer for Non-Detect Data
+#'
+#' In absence of a rigorous `ggplot2` extension, this function accepts a
+#'   mapping to `y` and returns `geom_point`, `geom_line` and optional scale.
+#'
+#' @param y expression. Variable to use on y-axis.
+#' @param scale logical. When `TRUE`, a custom `scale_shape_manual` is added.
+#' @param ... Extra arguments passed to **both** geoms.
+#'
+#' @note The main use for `y` is to be placed in `aes(...)` with added
+#'   information such as `value` or `is_nd`. As such no data is handled here.
+#'
+#' @export
+layer_Nd_line <- function(y, ..., scale = TRUE) {
+
+  y_uneval <- substitute(y)
+
+  mapping <-
+    ggplot2::aes(y = `$`(!!y_uneval, value), shape = `$`(!!y_uneval, is_nd))
+
+  scale_shape_Nd <-
+    ggplot2::scale_shape_manual(
+      name = "Non-detect?", breaks = c(FALSE, TRUE), labels = c("No", "Yes"),
+      values = c(16, 1), drop = FALSE
+    )
+
+  Filter(Negate(is.null), list(
+    ggplot2::geom_point(mapping = mapping, ...),
+    ggplot2::geom_line(mapping = mapping["y"], ...),
+    if (isTRUE(scale)) scale_shape_Nd else NULL
+  ))
+}
