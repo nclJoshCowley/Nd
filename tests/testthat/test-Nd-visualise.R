@@ -1,3 +1,13 @@
+test_that("Consistent visuals for autoplot.Nd", {
+  plot_data <- tibble::enframe(Nd_example, name = "xval", value = "yval")
+
+  vdiffr::expect_doppelganger(
+    "Nd Quantile plot",
+    ggplot2::autoplot(Nd_example, type = "quantile")
+  )
+})
+
+
 test_that("Consistent visuals for Nd layer", {
   plot_data <- tibble::enframe(Nd_example, name = "xval", value = "yval")
 

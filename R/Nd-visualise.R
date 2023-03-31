@@ -4,17 +4,18 @@
 #'
 #' @template Nd-method
 #' @param ... Extra arguments passed to other methods.
+#' @param type choice. For future extensions where plot type is to be chosen.
 #'
 #' @export
-plot.Nd <- function(x, ...) {
+plot.Nd <- function(x, ..., type = "quantile") {
   requireNamespace("ggplot2")
-  print(ggplot2::autoplot(x, ...))
+  print(ggplot2::autoplot(x, ..., type = type))
 }
 
 
 #' @rdname plot.Nd
 #' @export
-autoplot.Nd <- function(x, ...) {
+autoplot.Nd <- function(x, ..., type = "quantile") {
   quantile_plot_Nd(x, ...)
 }
 
@@ -35,7 +36,7 @@ quantile_plot_Nd <- function(x) {
       i = seq_along(x),
       value = x$value,
       is_nd = factor(x$is_nd, c(FALSE, TRUE), c("Observed", "Censored")),
-      rank = match(seq_along(x), order(x))
+      rank = match(seq_along(x), order(x$value))
     )
 
   cur_scale_colour <- getOption(

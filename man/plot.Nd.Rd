@@ -5,14 +5,16 @@
 \alias{autoplot.Nd}
 \title{Plot Non-Detect Data}
 \usage{
-\method{plot}{Nd}(x, ...)
+\method{plot}{Nd}(x, ..., type = "quantile")
 
-autoplot.Nd(x, ...)
+autoplot.Nd(x, ..., type = "quantile")
 }
 \arguments{
 \item{x}{object of class \code{\link{Nd}}.}
 
 \item{...}{Extra arguments passed to other methods.}
+
+\item{type}{choice. For future extensions where plot type is to be chosen.}
 }
 \description{
 Visualisation methods for non-detect data.
