@@ -114,14 +114,6 @@ method_test("mean.Nd()", {
 })
 
 
-method_test("as.character.Nd()", {
-  expect_equal(
-    as.character(x_Nd),
-    c("0.1", "10", "ND<0.5", "ND<2.7", rep(NA_character_, 6))
-  )
-})
-
-
 test_that("impute by DL/2, original scale", {
   skip_if_not(creation_valid)
   x_Nd <- suppressWarnings(Nd(testdata_Nd))

@@ -1,19 +1,25 @@
 #' @noRd
 #' @export
 format.Nd <- function(x, ...) {
-  format(as.character.Nd(x), ...)
-}
+  if (length(x) == 0) return(character(length = 0))
 
+  fmt_args <-
+    utils::modifyList(
+      list(trim = TRUE, justify = "none"),
+      rlang::list2(...)
+    )
 
-#' @noRd
-#' @export
-as.character.Nd <- function(x, ...) {
-  if (length(x) == 0) return("Nd(0)")
+  # Need subset of arguments (for output "ND<1") to be applied to RHS "1"
+  fmtC_args <-
+    utils::modifyList(
+      fmt_args,
+      list(x = x$value, trim = NULL, justify = NULL, width = -1),
+    )
 
-  value_character <- format(x$value, trim = TRUE, drop0trailing = TRUE)
+  out <- paste0(ifelse(x$is_nd, "ND<", ""), do.call(formatC, fmtC_args))
 
-  out <- paste0(ifelse(x$is_nd, "ND<", ""), value_character)
-
+  # Reapply same format options to output "ND<1"
+  out <- do.call(format, utils::modifyList(fmt_args, list(x = out)))
   out[is.na(x)] <- NA_character_
 
   return(out)
@@ -22,8 +28,16 @@ as.character.Nd <- function(x, ...) {
 
 #' @noRd
 #' @export
+as.character.Nd <- function(x, ...) {
+  format.Nd(x, ...)
+}
+
+
+#' @noRd
+#' @export
 print.Nd <- function(x, quote = FALSE, ...) {
-  invisible(print(as.character.Nd(x), quote = quote, ...))
+  x_char <- if (length(x) == 0) "Nd(0)" else as.character.Nd(x)
+  invisible(print(x_char, quote = quote, ...))
 }
 
 
