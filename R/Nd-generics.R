@@ -11,16 +11,15 @@ format.Nd <- function(x, ...) {
 
   # Need subset of arguments (for output "ND<1") to be applied to RHS "1"
   fmtC_args <-
-    utils::modifyList(
-      fmt_args,
-      list(x = x$value, trim = NULL, justify = NULL, width = -1),
-    )
+    utils::modifyList(fmt_args, list(
+      x = x$value, trim = NULL, justify = NULL, width = -1, na.encode = NULL
+    ))
 
   out <- paste0(ifelse(x$is_nd, "ND<", ""), do.call(formatC, fmtC_args))
 
   # Reapply same format options to output "ND<1"
   out <- do.call(format, utils::modifyList(fmt_args, list(x = out)))
-  out[is.na(x)] <- NA_character_
+  out[is.na(x)] <- if (isTRUE(fmt_args$na.encode)) "NA" else NA_character_
 
   return(out)
 }
