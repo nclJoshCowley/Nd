@@ -85,7 +85,10 @@ layer_Nd_line <- function(y, ..., scale = TRUE) {
   y_uneval <- substitute(y)
 
   mapping <-
-    ggplot2::aes(y = `$`(!!y_uneval, value), shape = `$`(!!y_uneval, is_nd))
+    ggplot2::aes(
+      y = `$`(!!y_uneval, value),
+      shape = factor(`$`(!!y_uneval, is_nd), levels = c(FALSE, TRUE))
+    )
 
   scale_shape_Nd <-
     ggplot2::scale_shape_manual(
