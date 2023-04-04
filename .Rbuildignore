@@ -4,3 +4,4 @@
 ^\.git$
 
 ^man-roxygen$
+^README\.qmd$
