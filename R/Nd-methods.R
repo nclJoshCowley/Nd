@@ -29,16 +29,3 @@ type_sum.Nd <- function(x) {
 cens_ratio <- function(x, na.rm = FALSE) {
   mean(x$is_nd, na.rm = na.rm)
 }
-
-
-#' Visualise Non-Detect Data
-#'
-#' @template Nd-method
-#'
-#' @export
-geom_Nd <- function(x) {
-  stop(
-    "Not implemented. Requires better understanding of ggplot2.",
-    call. = FALSE
-  )
-}

@@ -22,7 +22,6 @@ Visualisation methods for non-detect data.
 \seealso{
 Other \code{Nd} functions: 
 \code{\link{cens_ratio}()},
-\code{\link{geom_Nd}()},
 \code{\link{impute.Nd}()},
 \code{\link{is.Nd}()},
 \code{\link{type_sum.Nd}()}

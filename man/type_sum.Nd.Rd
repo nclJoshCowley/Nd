@@ -15,7 +15,6 @@ Changes type summary (shown in tibbles) from \code{Surv} to \code{Nd}.
 \seealso{
 Other \code{Nd} functions: 
 \code{\link{cens_ratio}()},
-\code{\link{geom_Nd}()},
 \code{\link{impute.Nd}()},
 \code{\link{is.Nd}()},
 \code{\link{plot.Nd}()}

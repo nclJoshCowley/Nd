@@ -16,7 +16,6 @@ Compute Degree of Censoring
 }
 \seealso{
 Other \code{Nd} functions: 
-\code{\link{geom_Nd}()},
 \code{\link{impute.Nd}()},
 \code{\link{is.Nd}()},
 \code{\link{plot.Nd}()},
