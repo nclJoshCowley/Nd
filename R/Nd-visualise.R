@@ -39,21 +39,13 @@ quantile_plot_Nd <- function(x) {
       rank = match(seq_along(x), order(x$value))
     )
 
-  cur_scale_colour <- getOption(
-    "ggplot2.discrete.colour",
-    default = ggplot2::scale_colour_manual(
-      name = NULL, drop = FALSE,
-      values = c("Censored" = "#B03333", "Observed" = "black")
+  scale_colour_type <-
+    getOption(
+      "ggplot2.discrete.colour",
+      default = c("Censored" = "#B03333", "Observed" = "black")
     )
-  )
 
-  cur_scale_shape <- getOption(
-    "ggplot2.discrete.colour",
-    default = ggplot2::scale_shape_manual(
-      name = NULL, drop = FALSE,
-      values = c("Censored" = 1, "Observed" = 16)
-    )
-  )
+  scale_shape_values <- c("Censored" = 1, "Observed" = 16)
 
   quantile_data |>
     ggplot2::ggplot(ggplot2::aes(
@@ -61,9 +53,9 @@ quantile_plot_Nd <- function(x) {
       shape = .data$is_nd, colour = .data$is_nd
     )) +
     ggplot2::geom_point() +
-    cur_scale_shape +
-    cur_scale_colour +
-    ggplot2::labs(y = "Rank", x = NULL)
+    ggplot2::labs(y = "Rank", x = NULL, colour = NULL, shape = NULL) +
+    ggplot2::scale_colour_discrete(drop = FALSE, type = scale_colour_type) +
+    ggplot2::scale_shape_manual(drop = FALSE, values = scale_shape_values)
 }
 
 
