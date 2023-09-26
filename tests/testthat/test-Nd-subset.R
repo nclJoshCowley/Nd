@@ -15,6 +15,18 @@ test_that("subset by '[' returns Nd", {
 })
 
 
+test_that("subset by '[' compatible with survival::Surv", {
+  x <- Nd_example
+
+  expect_equal(x[, "time"], unclass(x)[, 1])
+  expect_equal(x[, "status"], unclass(x)[, 2])
+
+  ind <- c(1, 2, 10)
+  expect_equal(x[ind, "time"], unclass(x)[ind, 1])
+  expect_equal(x[ind, "status"], unclass(x)[ind, 2])
+})
+
+
 test_that("subset and replace by '[' maintains Nd", {
   x <- Nd_example
 

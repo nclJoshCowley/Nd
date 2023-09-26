@@ -73,6 +73,9 @@ print.Nd <- function(x, quote = FALSE, ...) {
   # Drop is **silently** ignored; used in `stats::model.frame` so no warning
   if ("drop" %in% names(extra_args)) extra_args$drop <- NULL
 
+  # Compatibility with parent 'Surv' class
+  if (any(c("time", "status") %in% extra_args)) return(NextMethod())
+
   if (length(extra_args) > 0) {
     stop("Only one index allowed in `[.Nd`", call. = FALSE)
   }
