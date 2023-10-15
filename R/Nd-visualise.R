@@ -74,7 +74,7 @@ quantile_plot_Nd <- function(x) {
 #' @export
 layer_Nd_line <- function(y, ..., scale = TRUE) {
 
-  y_uneval <- substitute(y)
+  y_uneval <- rlang::enexpr(y)
 
   mapping <-
     ggplot2::aes(
