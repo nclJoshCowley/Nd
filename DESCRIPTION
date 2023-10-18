@@ -1,7 +1,7 @@
 Package: Nd
 Type: Package
 Title: S3 Class for Left-Censored Non-Detect Data
-Version: 0.1.0.9000
+Version: 0.1.0.9001
 Authors@R: 
     person(given = "Josh",
            family = "Cowley",

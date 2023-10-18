@@ -4,6 +4,7 @@
 \alias{Nd}
 \alias{Nd.default}
 \alias{Nd.Nd}
+\alias{Nd.Surv}
 \alias{Nd.numeric}
 \alias{Nd.character}
 \title{Non-Detect Data}
@@ -13,6 +14,8 @@ Nd(x, ...)
 \method{Nd}{default}(x, ...)
 
 \method{Nd}{Nd}(x, ...)
+
+\method{Nd}{Surv}(x, ...)
 
 \method{Nd}{numeric}(x, is_nd, ...)
 

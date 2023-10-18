@@ -47,6 +47,17 @@ Nd.Nd <- function(x, ...) {
 
 #' @rdname Nd
 #' @export
+Nd.Surv <- function(x, ...) {
+  stopifnot("Surv object must be left-censored" = "left" %in% attr(x, "type"))
+
+  class(x) <- c("Nd", class(x))
+
+  return(validate_Nd(x, quiet = FALSE))
+}
+
+
+#' @rdname Nd
+#' @export
 Nd.numeric <- function(x, is_nd, ...) {
   if (missing(is_nd)) is_nd <- ifelse(is.na(x), NA, rep(FALSE, length(x)))
 
