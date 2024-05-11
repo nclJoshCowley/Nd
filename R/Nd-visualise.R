@@ -85,7 +85,7 @@ layer_Nd_line <- function(y, ..., scale = TRUE) {
   scale_shape_Nd <-
     ggplot2::scale_shape_manual(
       name = "Non-detect?", breaks = c(FALSE, TRUE), labels = c("No", "Yes"),
-      values = c(16, 1), drop = FALSE
+      values = c(16, 6), drop = FALSE
     )
 
   Filter(Negate(is.null), list(

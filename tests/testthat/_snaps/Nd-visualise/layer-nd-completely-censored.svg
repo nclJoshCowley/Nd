@@ -27,15 +27,15 @@
 </defs>
 <g clip-path='url(#cpNDAuMTN8NjQzLjYzfDIyLjc4fDU0NS4xMQ==)'>
 <rect x='40.13' y='22.78' width='603.49' height='522.33' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<circle cx='67.56' cy='521.37' r='1.95' style='stroke-width: 0.71;' />
-<circle cx='117.44' cy='521.37' r='1.95' style='stroke-width: 0.71;' />
-<circle cx='167.32' cy='521.37' r='1.95' style='stroke-width: 0.71;' />
-<circle cx='217.19' cy='521.37' r='1.95' style='stroke-width: 0.71;' />
-<circle cx='267.07' cy='521.37' r='1.95' style='stroke-width: 0.71;' />
-<circle cx='316.94' cy='521.37' r='1.95' style='stroke-width: 0.71;' />
-<circle cx='516.44' cy='46.53' r='1.95' style='stroke-width: 0.71;' />
-<circle cx='566.32' cy='46.53' r='1.95' style='stroke-width: 0.71;' />
-<circle cx='616.20' cy='46.53' r='1.95' style='stroke-width: 0.71;' />
+<polygon points='67.56,524.41 70.20,519.85 64.93,519.85 ' style='stroke-width: 0.71; fill: none;' />
+<polygon points='117.44,524.41 120.07,519.85 114.81,519.85 ' style='stroke-width: 0.71; fill: none;' />
+<polygon points='167.32,524.41 169.95,519.85 164.68,519.85 ' style='stroke-width: 0.71; fill: none;' />
+<polygon points='217.19,524.41 219.82,519.85 214.56,519.85 ' style='stroke-width: 0.71; fill: none;' />
+<polygon points='267.07,524.41 269.70,519.85 264.43,519.85 ' style='stroke-width: 0.71; fill: none;' />
+<polygon points='316.94,524.41 319.57,519.85 314.31,519.85 ' style='stroke-width: 0.71; fill: none;' />
+<polygon points='516.44,49.57 519.08,45.01 513.81,45.01 ' style='stroke-width: 0.71; fill: none;' />
+<polygon points='566.32,49.57 568.95,45.01 563.69,45.01 ' style='stroke-width: 0.71; fill: none;' />
+<polygon points='616.20,49.57 618.83,45.01 613.56,45.01 ' style='stroke-width: 0.71; fill: none;' />
 <polyline points='67.56,521.37 117.44,521.37 167.32,521.37 217.19,521.37 267.07,521.37 316.94,521.37 516.44,46.53 566.32,46.53 616.20,46.53 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <rect x='40.13' y='22.78' width='603.49' height='522.33' style='stroke-width: 1.07; stroke: #333333;' />
 </g>
@@ -65,7 +65,7 @@
 <rect x='654.59' y='274.33' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <circle cx='663.23' cy='282.97' r='1.95' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
 <rect x='654.59' y='291.61' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<circle cx='663.23' cy='300.25' r='1.95' style='stroke-width: 0.71;' />
+<polygon points='663.23,303.29 665.86,298.73 660.59,298.73 ' style='stroke-width: 0.71; fill: none;' />
 <text x='677.35' y='286.00' style='font-size: 8.80px; font-family: sans;' textLength='11.25px' lengthAdjust='spacingAndGlyphs'>No</text>
 <text x='677.35' y='303.28' style='font-size: 8.80px; font-family: sans;' textLength='15.17px' lengthAdjust='spacingAndGlyphs'>Yes</text>
 <text x='40.13' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='181.26px' lengthAdjust='spacingAndGlyphs'>layer_Nd, completely censored</text>
